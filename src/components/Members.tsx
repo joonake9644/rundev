@@ -1,4 +1,7 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function Members() {
   const members = [
@@ -45,33 +48,41 @@ export default function Members() {
 
         {/* Members Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {members.map((member) => (
-            <Card key={member.name} className="border-2 border-zinc-900 bg-white hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center space-y-4">
-                {/* Avatar */}
-                <div className="w-20 h-20 mx-auto bg-zinc-900 rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">
-                    {member.initials}
-                  </span>
-                </div>
+          {members.map((member, index) => (
+            <motion.div
+              key={member.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="border-2 border-zinc-900 bg-white hover:shadow-lg transition-shadow h-full">
+                <CardContent className="p-6 text-center space-y-4">
+                  {/* Avatar */}
+                  <div className="w-20 h-20 mx-auto bg-zinc-900 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">
+                      {member.initials}
+                    </span>
+                  </div>
 
-                {/* Info */}
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-900">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-zinc-600 tracking-wide mt-1">
-                    {member.role}
-                  </p>
-                </div>
+                  {/* Info */}
+                  <div>
+                    <h3 className="text-xl font-bold text-zinc-900">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm text-zinc-600 tracking-wide mt-1">
+                      {member.role}
+                    </p>
+                  </div>
 
-                {/* Stats */}
-                <div className="flex justify-center gap-4 text-sm text-zinc-500">
-                  <span>🏃 {member.years}</span>
-                  <span>🏆 {member.events}</span>
-                </div>
-              </CardContent>
-            </Card>
+                  {/* Stats */}
+                  <div className="flex justify-center gap-4 text-sm text-zinc-500">
+                    <span>🏃 {member.years}</span>
+                    <span>🏆 {member.events}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

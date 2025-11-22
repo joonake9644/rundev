@@ -1,4 +1,7 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function About() {
   const features = [
@@ -44,20 +47,28 @@ export default function About() {
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-3 gap-6 pt-8">
-            {features.map((feature) => (
-              <Card key={feature.title} className="border-2 border-zinc-900 bg-white hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 space-y-4">
-                  <div className="text-4xl">{feature.icon}</div>
-                  <div className="space-y-2">
-                    <h4 className="text-lg font-bold tracking-wide text-zinc-900">
-                      {feature.title}
-                    </h4>
-                    <p className="text-sm text-zinc-600">
-                      {feature.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="border-2 border-zinc-900 bg-white hover:shadow-lg transition-shadow h-full">
+                  <CardContent className="p-6 space-y-4">
+                    <div className="text-4xl">{feature.icon}</div>
+                    <div className="space-y-2">
+                      <h4 className="text-lg font-bold tracking-wide text-zinc-900">
+                        {feature.title}
+                      </h4>
+                      <p className="text-sm text-zinc-600">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>

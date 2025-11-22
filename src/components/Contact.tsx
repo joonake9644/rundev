@@ -13,8 +13,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,11 +29,18 @@ export default function Contact() {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.phone || !formData.experience) {
-      alert("모든 필수 항목을 입력해주세요.");
+      toast({
+        variant: "destructive",
+        title: "필수 항목 누락",
+        description: "모든 필수 항목을 입력해주세요.",
+      });
       return;
     }
 
-    alert("가입 신청이 완료되었습니다! 곧 연락드리겠습니다.");
+    toast({
+      title: "가입 신청 완료!",
+      description: "가입 신청이 완료되었습니다. 곧 연락드리겠습니다.",
+    });
 
     setFormData({
       name: "",
@@ -85,7 +94,7 @@ export default function Contact() {
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="font-['var(--font-space-grotesk)']">
+                  <Label htmlFor="name">
                     이름
                   </Label>
                   <Input
@@ -98,7 +107,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="font-['var(--font-space-grotesk)']">
+                  <Label htmlFor="email">
                     이메일
                   </Label>
                   <Input
@@ -112,7 +121,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="font-['var(--font-space-grotesk)']">
+                  <Label htmlFor="phone">
                     전화번호
                   </Label>
                   <Input
@@ -126,7 +135,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="experience" className="font-['var(--font-space-grotesk)']">
+                  <Label htmlFor="experience">
                     러닝 경험
                   </Label>
                   <Select
@@ -146,7 +155,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="font-['var(--font-space-grotesk)']">
+                  <Label htmlFor="message">
                     자기소개
                   </Label>
                   <Textarea

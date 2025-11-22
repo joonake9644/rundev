@@ -1,4 +1,7 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function Events() {
   const events = [
@@ -44,37 +47,45 @@ export default function Events() {
 
         {/* Events Grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          {events.map((event) => (
-            <Card key={event.title} className="border-2 border-zinc-900 hover:shadow-xl transition-shadow overflow-hidden">
-              <CardContent className="p-0">
-                <div className="flex">
-                  {/* Date */}
-                  <div className="bg-zinc-900 text-white p-6 flex flex-col items-center justify-center min-w-[100px]">
-                    <span className="text-3xl font-bold">
-                      {event.day}
-                    </span>
-                    <span className="text-sm tracking-wider">
-                      {event.month}
-                    </span>
-                  </div>
+          {events.map((event, index) => (
+            <motion.div
+              key={event.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="border-2 border-zinc-900 hover:shadow-xl transition-shadow overflow-hidden h-full">
+                <CardContent className="p-0">
+                  <div className="flex">
+                    {/* Date */}
+                    <div className="bg-zinc-900 text-white p-6 flex flex-col items-center justify-center min-w-[100px]">
+                      <span className="text-3xl font-bold">
+                        {event.day}
+                      </span>
+                      <span className="text-sm tracking-wider">
+                        {event.month}
+                      </span>
+                    </div>
 
-                  {/* Info */}
-                  <div className="p-6 flex-1">
-                    <h3 className="text-lg font-bold tracking-wide text-zinc-900 mb-2">
-                      {event.title}
-                    </h3>
-                    <p className="text-sm text-zinc-600 mb-4">
-                      {event.description}
-                    </p>
-                    <div className="space-y-1 text-xs text-zinc-500">
-                      <div>📍 {event.location}</div>
-                      <div>⏰ {event.time}</div>
-                      <div>👥 {event.capacity}</div>
+                    {/* Info */}
+                    <div className="p-6 flex-1">
+                      <h3 className="text-lg font-bold tracking-wide text-zinc-900 mb-2">
+                        {event.title}
+                      </h3>
+                      <p className="text-sm text-zinc-600 mb-4">
+                        {event.description}
+                      </p>
+                      <div className="space-y-1 text-xs text-zinc-500">
+                        <div>📍 {event.location}</div>
+                        <div>⏰ {event.time}</div>
+                        <div>👥 {event.capacity}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
