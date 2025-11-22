@@ -7,10 +7,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #A8A8A8;
-    background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+    background-color: #F5F5F5;
     color: #000000;
     line-height: 1.6;
     overflow-x: hidden;
@@ -31,8 +28,8 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     background: #FFFFFF;
-    border-bottom: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+    border-bottom: 4px solid #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
     padding: 0 20px;
 }
@@ -131,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     z-index: 0;
-    background: linear-gradient(135deg, #9E9E9E 0%, #BDBDBD 100%);
+    background: linear-gradient(135deg, #E8E8E8 0%, #F5F5F5 100%);
 }
 
 .concrete-texture {
@@ -191,8 +188,8 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title {
     margin-bottom: 40px;
     background: #FFFFFF;
-    border: 8px solid #000000;
-    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     padding: 60px 40px;
 }
 
@@ -232,8 +229,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     background: #FFFFFF;
     padding: 30px;
-    border: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .hero-stats {
@@ -247,8 +244,8 @@ h1, h2, h3, h4, h5, h6 {
 .stat-item {
     text-align: center;
     background: #000000;
-    border: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(255, 107, 53, 1);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     padding: 40px 50px;
     min-width: 200px;
 }
@@ -284,11 +281,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
     font-size: 1.2rem;
     letter-spacing: 3px;
-    border: 6px solid #000000;
+    border: 4px solid #000000;
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .cta-primary {
@@ -300,7 +297,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #000000;
     color: #FF6B35;
     transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .cta-secondary {
@@ -312,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #000000;
     color: #FFFFFF;
     transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* Section Styles */
@@ -335,8 +332,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
     background: #FFFFFF;
     padding: 40px;
-    border: 8px solid #000000;
-    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     display: inline-block;
 }
 
@@ -350,25 +347,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* About Section */
 .about-section {
-    background: #B8B8B8;
-    background-image:
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.06) 2px, rgba(0,0,0,.06) 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.06) 2px, rgba(0,0,0,.06) 4px);
+    background: #FFFFFF;
     position: relative;
-}
-
-.about-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.3) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.3) 2px, transparent 2px);
-    background-size: 80px 80px;
-    pointer-events: none;
 }
 
 .about-content h3 {
@@ -378,8 +358,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
     background: #FF6B35;
     padding: 30px;
-    border: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .about-content p {
@@ -387,10 +367,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 60px;
     color: #000000;
     line-height: 1.8;
-    background: #FFFFFF;
+    background: #F5F5F5;
     padding: 30px;
-    border: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     font-weight: 500;
 }
 
@@ -407,15 +387,15 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 20px;
     padding: 40px;
-    background: #FFFFFF;
-    border: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    background: #F5F5F5;
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease;
 }
 
 .feature-item:hover {
     transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .feature-icon {
@@ -452,10 +432,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Events Section */
 .events-section {
-    background: #9E9E9E;
-    background-image:
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.05) 2px, rgba(0,0,0,.05) 4px);
+    background: #F5F5F5;
 }
 
 .events-grid {
@@ -466,27 +443,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .event-card {
     background: #FFFFFF;
-    border: 6px solid #000000;
+    border: 4px solid #000000;
     padding: 40px;
     display: flex;
     gap: 30px;
     transition: all 0.2s ease;
     position: relative;
     overflow: visible;
-    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.9);
-}
-
-.event-card::before {
-    display: none;
-}
-
-.event-card:hover::before {
-    display: none;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .event-card:hover {
     transform: translate(4px, 4px);
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .event-date {
@@ -548,10 +517,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Members Section */
 .members-section {
-    background: #B0B0B0;
-    background-image:
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.04) 2px, rgba(0,0,0,.04) 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.04) 2px, rgba(0,0,0,.04) 4px);
+    background: #FFFFFF;
 }
 
 .members-grid {
@@ -561,18 +527,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .member-card {
-    background: #FFFFFF;
-    border: 6px solid #000000;
+    background: #F5F5F5;
+    border: 4px solid #000000;
     padding: 40px;
     text-align: center;
     transition: all 0.2s ease;
     position: relative;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .member-card:hover {
     transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .member-avatar {
@@ -629,10 +595,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Contact Section */
 .contact-section {
-    background: #A0A0A0;
-    background-image:
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.06) 2px, rgba(0,0,0,.06) 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.06) 2px, rgba(0,0,0,.06) 4px);
+    background: #F5F5F5;
 }
 
 .contact-content {
@@ -645,8 +608,8 @@ h1, h2, h3, h4, h5, h6 {
 .contact-form {
     background: #FFFFFF;
     padding: 50px;
-    border: 8px solid #000000;
-    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .form-group {
@@ -683,7 +646,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group textarea:focus {
     outline: none;
     border-color: #FF6B35;
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn {
@@ -691,7 +654,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 25px;
     background: #FF6B35;
     color: #000000;
-    border: 6px solid #000000;
+    border: 4px solid #000000;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 900;
     font-size: 1.3rem;
@@ -699,14 +662,14 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn:hover {
     background: #000000;
     color: #FF6B35;
     transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info h3 {
@@ -716,21 +679,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
     background: #FF6B35;
     padding: 25px;
-    border: 6px solid #000000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
     letter-spacing: 3px;
 }
 
 .contact-item {
     margin-bottom: 30px;
     padding: 30px;
-    border: 5px solid #000000;
+    border: 4px solid #000000;
     background: #FFFFFF;
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
 .contact-item:last-child {
-    border: 5px solid #000000;
+    border: 4px solid #000000;
 }
 
 .contact-item strong {
@@ -783,13 +746,13 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         height: calc(100vh - 90px);
         background: #FFFFFF;
-        border-left: 8px solid #000000;
+        border-left: 4px solid #000000;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 0;
         transition: left 0.3s ease;
-        box-shadow: 8px 0 0px rgba(0, 0, 0, 0.9);
+        box-shadow: 8px 0 0px rgba(0, 0, 0, 0.15);
     }
 
     .nav-menu.active {
@@ -916,7 +879,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-title {
         padding: 30px 15px;
-        border: 6px solid #000000;
+        border: 4px solid #000000;
     }
 
     .hero-description {
