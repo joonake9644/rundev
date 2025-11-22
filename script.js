@@ -1,239 +1,352 @@
-// DOM이 로드된 후 실행
+// Loading Screen Handler
 document.addEventListener('DOMContentLoaded', function() {
-    // 네비게이션 토글 기능
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
+    const loadingScreen = document.getElementById('loadingScreen');
+    const mainContent = document.getElementById('mainContent');
 
-    navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
-
-    // 네비게이션 링크 클릭 시 메뉴 닫기
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        });
-    });
-
-    // 스무스 스크롤
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // 스크롤 시 네비게이션 배경 변화
-    window.addEventListener('scroll', function() {
-        const nav = document.querySelector('.nav-container');
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(26, 26, 26, 0.98)';
-        } else {
-            nav.style.background = 'rgba(26, 26, 26, 0.95)';
-        }
-    });
-
-    // 폼 제출 처리
-    const joinForm = document.getElementById('joinForm');
-    joinForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // 폼 데이터 수집
-        const formData = new FormData(joinForm);
-        const data = Object.fromEntries(formData);
-
-        // 간단한 유효성 검사
-        if (!data.name || !data.email || !data.phone || !data.experience) {
-            alert('모든 필수 항목을 입력해주세요.');
-            return;
-        }
-
-        // 성공 메시지
-        alert('가입 신청이 완료되었습니다! 곧 연락드리겠습니다.');
-
-        // 폼 초기화
-        joinForm.reset();
-
-        // 실제 구현에서는 서버로 데이터 전송
-        console.log('Form Data:', data);
-    });
-
-    // 인터랙션 애니메이션
-    const observeElements = () => {
-        const elements = document.querySelectorAll('.feature-item, .event-card, .member-card');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        elements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    };
-
-    // 애니메이션 초기화
-    observeElements();
-
-    // 통계 카운터 애니메이션
-    const animateCounters = () => {
-        const counters = document.querySelectorAll('.stat-number');
-        const targets = [250, 1000, 50]; // 목표 숫자들
-
-        counters.forEach((counter, index) => {
-            const target = targets[index];
-            const increment = target / 100;
-            let current = 0;
-
-            const updateCounter = () => {
-                if (current < target) {
-                    current += increment;
-                    counter.textContent = Math.floor(current) + '+';
-                    setTimeout(updateCounter, 20);
-                } else {
-                    counter.textContent = target + '+';
-                }
-            };
-
-            // 페이지 로드 후 1초 뒤 애니메이션 시작
-            setTimeout(updateCounter, 1000);
-        });
-    };
-
-    // 카운터 애니메이션 시작
-    animateCounters();
-
-    // CTA 버튼 클릭 이벤트
-    const ctaPrimary = document.querySelector('.cta-primary');
-    const ctaSecondary = document.querySelector('.cta-secondary');
-
-    ctaPrimary.addEventListener('click', function() {
-        document.getElementById('contact').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-
-    ctaSecondary.addEventListener('click', function() {
-        document.getElementById('about').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-
-    // 키보드 접근성
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        }
-    });
-
-    // 터치 스와이프 감지 (모바일)
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    document.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    document.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const swipeThreshold = 100;
-        const diff = touchStartX - touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0 && navMenu.classList.contains('active')) {
-                // 왼쪽 스와이프 - 메뉴 닫기
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        }
-    }
-
-    // 페이지 성능 최적화
-    let ticking = false;
-
-    function updateOnScroll() {
-        // 스크롤 기반 애니메이션 최적화
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                // 여기에 스크롤 기반 업데이트 로직 추가 가능
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', updateOnScroll);
-
-    // 콘솔 메시지
-    console.log('🏃‍♂️ CONCRETE RUNNERS - Industrial Running Crew');
-    console.log('🏗️ Brutalism meets running culture');
-    console.log('🧡 Built with industrial aesthetics');
+    // Hide loading screen after animation completes (3 seconds)
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => {
+            mainContent.classList.add('visible');
+        }, 500);
+    }, 3500);
 });
 
-// 유틸리티 함수들
-const utils = {
-    // 이메일 유효성 검사
-    validateEmail: function(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    },
+// Action Buttons State Management
+const actionButtons = document.querySelectorAll('.action-btn');
 
-    // 전화번호 포맷팅
-    formatPhone: function(phone) {
-        return phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-    },
+actionButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Reset all buttons to normal state
+        actionButtons.forEach(btn => {
+            btn.setAttribute('data-state', 'normal');
+        });
 
-    // 디바운스 함수
-    debounce: function(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
+        // Set clicked button to active state
+        this.setAttribute('data-state', 'active');
+
+        // Get button text and handle actions
+        const buttonText = this.querySelector('.btn-text').textContent;
+        handleButtonAction(buttonText);
+    });
+
+    // Hover state
+    button.addEventListener('mouseenter', function() {
+        if (this.getAttribute('data-state') !== 'active') {
+            this.setAttribute('data-state', 'hover');
+        }
+    });
+
+    button.addEventListener('mouseleave', function() {
+        if (this.getAttribute('data-state') === 'hover') {
+            this.setAttribute('data-state', 'normal');
+        }
+    });
+});
+
+// Handle Button Actions
+function handleButtonAction(action) {
+    switch(action) {
+        case 'JOIN CREW':
+            scrollToSection('contact');
+            break;
+        case 'BOOK RUN':
+            scrollToSection('routes');
+            break;
+        case 'VIEW STATS':
+            scrollToSection('gallery');
+            break;
+        case 'CONTACT US':
+            scrollToSection('contact');
+            break;
+        default:
+            console.log('Action:', action);
     }
+}
+
+// Smooth Scroll Function
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Navigation Links
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        scrollToSection(targetId);
+    });
+});
+
+// Announcement Cards Animation
+const announcementCards = document.querySelectorAll('.announcement-card');
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-// 에러 처리
-window.addEventListener('error', function(e) {
-    console.error('JavaScript Error:', e.error);
+const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+announcementCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    cardObserver.observe(card);
 });
 
-// 성능 모니터링
+// Gallery Photo Frames Animation
+const photoFrames = document.querySelectorAll('.photo-frame');
+photoFrames.forEach((frame, index) => {
+    frame.style.opacity = '0';
+    frame.style.transform = 'scale(0.9)';
+    frame.style.transition = `opacity 0.5s ease ${index * 0.05}s, transform 0.5s ease ${index * 0.05}s`;
+});
+
+const frameObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'scale(1)';
+        }
+    });
+}, observerOptions);
+
+photoFrames.forEach(frame => {
+    frameObserver.observe(frame);
+});
+
+// Route Cards Animation
+const routeCards = document.querySelectorAll('.route-card');
+routeCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateX(-30px)';
+    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+});
+
+const routeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+        }
+    });
+}, observerOptions);
+
+routeCards.forEach(card => {
+    routeObserver.observe(card);
+});
+
+// Read More Buttons
+const readMoreBtns = document.querySelectorAll('.read-more-btn');
+readMoreBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const card = this.closest('.announcement-card');
+        const header = card.querySelector('.card-header').textContent;
+        alert(`Opening: ${header}\n\nThis would typically open a detailed view or modal with more information.`);
+    });
+});
+
+// View All Button
+const viewAllBtn = document.querySelector('.view-all-btn');
+if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', function() {
+        alert('Opening full gallery view...\n\nThis would typically open a complete gallery page or lightbox.');
+    });
+}
+
+// CTA Button Large
+const ctaBtnLarge = document.querySelector('.cta-btn-large');
+if (ctaBtnLarge) {
+    ctaBtnLarge.addEventListener('click', function() {
+        scrollToSection('contact');
+    });
+}
+
+// Parallax Effect for Runner Silhouettes
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+
+    const runnerHero = document.querySelector('.runner-silhouette-hero');
+    const runnerAnnouncements = document.querySelector('.runner-silhouette-announcements');
+    const runnerRoutes = document.querySelector('.runner-silhouette-routes');
+
+    if (runnerHero) {
+        runnerHero.style.transform = `translateY(${scrolled * 0.1}px)`;
+    }
+
+    if (runnerAnnouncements) {
+        const announcementsOffset = document.querySelector('.announcements-section').offsetTop;
+        if (scrolled > announcementsOffset - window.innerHeight) {
+            runnerAnnouncements.style.transform = `translateY(${(scrolled - announcementsOffset) * 0.05}px)`;
+        }
+    }
+
+    if (runnerRoutes) {
+        const routesOffset = document.querySelector('.routes-section').offsetTop;
+        if (scrolled > routesOffset - window.innerHeight) {
+            runnerRoutes.style.transform = `translateY(${(scrolled - routesOffset) * 0.05}px)`;
+        }
+    }
+});
+
+// Gear Rotation Animation
+const gearLarge = document.querySelector('.gear-large');
+if (gearLarge) {
+    let rotation = 0;
+    setInterval(() => {
+        rotation += 0.5;
+        gearLarge.style.transform = `rotate(${rotation}deg)`;
+    }, 50);
+}
+
+// Stats Sidebar Sticky Behavior
+window.addEventListener('scroll', function() {
+    const statsSidebar = document.querySelector('.stats-sidebar');
+    const heroSection = document.querySelector('.hero-section');
+
+    if (statsSidebar && heroSection && window.innerWidth > 768) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrolled = window.pageYOffset;
+
+        if (scrolled > heroSection.offsetTop && scrolled < heroBottom - window.innerHeight / 2) {
+            statsSidebar.style.position = 'fixed';
+            statsSidebar.style.top = '50%';
+            statsSidebar.style.right = '50px';
+        } else {
+            statsSidebar.style.position = 'absolute';
+            statsSidebar.style.top = '50%';
+        }
+    }
+});
+
+// Keyboard Navigation
+document.addEventListener('keydown', function(e) {
+    // Escape key to reset button states
+    if (e.key === 'Escape') {
+        actionButtons.forEach(btn => {
+            btn.setAttribute('data-state', 'normal');
+        });
+    }
+
+    // Number keys 1-4 to trigger action buttons
+    if (e.key >= '1' && e.key <= '4') {
+        const index = parseInt(e.key) - 1;
+        if (actionButtons[index]) {
+            actionButtons[index].click();
+        }
+    }
+});
+
+// Performance Monitoring
 if ('performance' in window) {
     window.addEventListener('load', function() {
         setTimeout(function() {
             const perfData = performance.getEntriesByType('navigation')[0];
-            console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+            if (perfData) {
+                console.log('🏃‍♂️ URBAN RUNNERS Performance Metrics');
+                console.log('🏗️ Page Load Time:', Math.round(perfData.loadEventEnd - perfData.loadEventStart), 'ms');
+                console.log('🧱 DOM Content Loaded:', Math.round(perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart), 'ms');
+            }
         }, 0);
     });
 }
+
+// Console Art
+console.log('%c URBAN RUNNERS ', 'background: #FF6600; color: #FFFFFF; font-size: 20px; font-weight: bold; padding: 10px;');
+console.log('%c CONCRETE MILES // RAW SPEED ', 'background: #1A1A1A; color: #FF6600; font-size: 12px; padding: 5px;');
+console.log('%c Industrial Running Crew ', 'color: #4A4A4A; font-size: 10px;');
+
+// Prevent default drag behavior on images
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('dragstart', e => e.preventDefault());
+});
+
+// Add loading state to buttons
+const allButtons = document.querySelectorAll('button');
+allButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const originalText = this.textContent;
+
+        // Visual feedback
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 100);
+    });
+});
+
+// Intersection Observer for Stats Boxes
+const statBoxes = document.querySelectorAll('.stat-box');
+let hasAnimated = false;
+
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            animateStatBoxes();
+        }
+    });
+}, { threshold: 0.5 });
+
+if (statBoxes.length > 0) {
+    statsObserver.observe(statBoxes[0]);
+}
+
+function animateStatBoxes() {
+    statBoxes.forEach((box, index) => {
+        setTimeout(() => {
+            box.style.transform = 'translateX(0)';
+            box.style.opacity = '1';
+        }, index * 100);
+    });
+}
+
+// Initialize stat boxes hidden
+statBoxes.forEach(box => {
+    box.style.transform = 'translateX(20px)';
+    box.style.opacity = '0';
+    box.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+});
+
+// Error Handling
+window.addEventListener('error', function(e) {
+    console.error('🚨 Error detected:', e.error);
+});
+
+// Mobile Menu Toggle (for future implementation)
+function initMobileMenu() {
+    if (window.innerWidth <= 768) {
+        console.log('📱 Mobile view detected');
+    }
+}
+
+window.addEventListener('resize', initMobileMenu);
+initMobileMenu();
+
+// Smooth Scroll Polyfill Check
+if (!('scrollBehavior' in document.documentElement.style)) {
+    console.warn('⚠️ Smooth scrolling not supported in this browser');
+}
+
+// Initialize all animations and interactions
+function init() {
+    console.log('✅ URBAN RUNNERS initialized');
+    console.log('🏃 Ready to run!');
+}
+
+// Run initialization
+init();

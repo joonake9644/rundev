@@ -1,304 +1,273 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONCRETE RUNNERS - Industrial Running Crew</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>URBAN RUNNERS - Industrial Concrete Running Crew</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 네비게이션 -->
-    <nav class="nav-container">
-        <div class="nav-content">
-            <div class="logo">
-                <span class="logo-text">CONCRETE</span>
-                <span class="logo-sub">RUNNERS</span>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="concrete-bg">
+                <div class="runner-silhouette"></div>
+                <div class="crane"></div>
             </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link">HOME</a>
+            <h1 class="loading-title">CONNECTING...</h1>
+            <div class="loading-subtitle">
+                <div class="loading-bar-container">
+                    <div class="loading-label">SYNCING DATA</div>
+                    <div class="loading-label">READY TO RUN</div>
+                </div>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                    <div class="loading-complete">COMPLETE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <h1 class="brand-title">URBAN<br>RUNNERS</h1>
+                <div class="brand-tagline">
+                    <div class="tagline-accent"></div>
+                    <span>CONCRETE MILES<br>RAW SPEED</span>
+                </div>
+            </div>
+            <div class="nav-menu">
                 <a href="#about" class="nav-link">ABOUT</a>
-                <a href="#events" class="nav-link">EVENTS</a>
-                <a href="#members" class="nav-link">MEMBERS</a>
+                <a href="#schedule" class="nav-link">SCHEDULE</a>
+                <a href="#routes" class="nav-link">ROUTES</a>
+                <a href="#gallery" class="nav-link">GALLERY</a>
+                <a href="#gallery" class="nav-link">GALLERY</a>
                 <a href="#contact" class="nav-link">CONTACT</a>
             </div>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- 메인 히어로 섹션 -->
-    <section id="home" class="hero-section">
-        <div class="hero-background">
-            <div class="concrete-texture"></div>
-            <div class="industrial-grid"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-main">CONCRETE</span>
-                    <span class="title-sub">RUNNERS</span>
-                </h1>
-                <p class="hero-description">도시의 콘크리트 위를 달리는 산업적 러닝 크루</p>
-                <div class="hero-stats">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="concrete-texture-bg"></div>
+            <div class="runner-silhouette-hero"></div>
+            <div class="industrial-elements">
+                <div class="gear-large"></div>
+                <div class="crane-hero"></div>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-brand">URBAN<br>RUNNERS</h1>
+                <div class="hero-tagline">
+                    <div class="tagline-bar"></div>
+                    <span>CONCRETE MILES<br>RAW SPEED</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn" data-state="normal">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">JOIN CREW</span>
+                    </button>
+                    <button class="action-btn" data-state="normal">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">BOOK RUN</span>
+                    </button>
+                    <button class="action-btn" data-state="normal">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">VIEW STATS</span>
+                    </button>
+                    <button class="action-btn" data-state="normal">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">CONTACT US</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Sidebar -->
+            <div class="stats-sidebar">
+                <div class="stat-box">
+                    <div class="stat-label">WEEKLY RUNS:</div>
+                    <div class="stat-value">MON/WED/SAT</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">NEXT EVENT:</div>
+                    <div class="stat-value">10K CHALLENGE</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">MEMBERS:</div>
+                    <div class="stat-value">248</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">EST.</div>
+                    <div class="stat-value">2020</div>
+                </div>
+                <div class="no-limits">
+                    <span>NO</span>
+                    <span class="limits-text">LIMITS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section id="announcements" class="announcements-section">
+            <div class="concrete-texture-bg"></div>
+            <div class="runner-silhouette-announcements"></div>
+
+            <div class="announcements-content">
+                <h2 class="section-title">ANNOUNCEMENTS</h2>
+                <div class="section-tagline">
+                    <div class="tagline-bar"></div>
+                    <span>CREW UPDATES<br>UPDATES</span>
+                </div>
+
+                <div class="announcements-grid">
+                    <div class="announcement-card urgent">
+                        <div class="card-header">URGENT: RACE DAY</div>
+                        <button class="read-more-btn">READ MORE</button>
+                    </div>
+                    <div class="announcement-card">
+                        <div class="card-header">NEW ROUTE ADDED</div>
+                        <button class="read-more-btn">READ MORE</button>
+                    </div>
+                    <div class="announcement-card">
+                        <div class="card-header">WEATHER ALERT</div>
+                        <button class="read-more-btn">READ MORE</button>
+                    </div>
+                    <div class="announcement-card">
+                        <div class="card-header">WEATHER ALERT</div>
+                        <button class="read-more-btn">READ MORE</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="concrete-texture-bg"></div>
+
+            <div class="gallery-content">
+                <h2 class="gallery-title">GALLERY</h2>
+                <div class="gallery-subtitle">CREW MOMENTS</div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-category">
+                        <h3 class="category-title">RECENT RUNS</h3>
+                        <div class="photo-grid">
+                            <div class="photo-frame"></div>
+                            <div class="photo-frame"></div>
+                            <div class="photo-frame"></div>
+                            <div class="photo-frame"></div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-category">
+                        <h3 class="category-title">ACHIEVEMENTS</h3>
+                        <div class="photo-grid">
+                            <div class="photo-frame medal"></div>
+                            <div class="photo-frame finish"></div>
+                            <div class="photo-frame medal-bronze"></div>
+                            <div class="photo-frame finish-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-category">
+                        <h3 class="category-title">EVENT PHOTOS</h3>
+                        <div class="photo-grid">
+                            <div class="photo-frame crowd"></div>
+                            <div class="photo-frame race"></div>
+                            <div class="photo-frame group"></div>
+                            <div class="photo-frame marathon"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="view-all-btn">VIEW ALL</button>
+            </div>
+        </section>
+
+        <!-- Routes Section -->
+        <section id="routes" class="routes-section">
+            <div class="concrete-texture-bg"></div>
+            <div class="runner-silhouette-routes"></div>
+            <div class="crane-routes"></div>
+
+            <div class="routes-content">
+                <h2 class="section-title-large">URBAN<br>RUNNERS</h2>
+                <div class="section-tagline-large">
+                    <div class="tagline-bar"></div>
+                    <span>CONCRETE MILES<br>RAW SPEED</span>
+                </div>
+
+                <button class="cta-btn-large">JOIN CREW</button>
+
+                <div class="routes-info">
+                    <h3 class="routes-heading">UPCOMING ROUTES</h3>
+
+                    <div class="route-cards">
+                        <div class="route-card">
+                            <div class="route-icon"></div>
+                            <h4>UPCOMING ROUTES</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed de eiusmod tempor inc insidiunt et dolore.</p>
+                        </div>
+                        <div class="route-card">
+                            <div class="route-icon"></div>
+                            <h4>UPCOMING ROUTES</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed de eiusmod tempor inc insidiunt et labore.</p>
+                        </div>
+                        <div class="route-card">
+                            <div class="route-icon"></div>
+                            <h4>UPCOMING ROUTES</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed de eiusmod tempor inc involunt et lesiore.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-info-sidebar">
                     <div class="stat-item">
-                        <span class="stat-number">250+</span>
-                        <span class="stat-label">MEMBERS</span>
+                        <div class="stat-label">WEEKLY RUNS:</div>
+                        <div class="stat-value">MON/WED/SAT</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">KM RUN</span>
+                        <div class="stat-label">NEXT EVENT:</div>
+                        <div class="stat-value">10K CHALLENGE</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">EVENTS</span>
+                        <div class="stat-label">MEMBERS:</div>
+                        <div class="stat-value">248</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">EST.</div>
+                        <div class="stat-value">2020</div>
                     </div>
                 </div>
             </div>
-            <div class="hero-cta">
-                <button class="cta-primary">JOIN THE CREW</button>
-                <button class="cta-secondary">EXPLORE</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About 섹션 -->
-    <section id="about" class="about-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">ABOUT CONCRETE RUNNERS</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Industrial Spirit, Urban Running</h3>
-                    <p>우리는 도시의 거친 콘크리트 위에서 달리며, 산업적 미학과 러닝의 순수함을 결합합니다. 브루탈리즘의 강인함과 러너들의 열정이 만나는 곳입니다.</p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">🏃</div>
-                            <div class="feature-text">
-                                <h4>URBAN RUNNING</h4>
-                                <p>도시 곳곳의 콘크리트 길을 탐험하며 새로운 러닝 경험을 제공합니다.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🏗️</div>
-                            <div class="feature-text">
-                                <h4>INDUSTRIAL AESTHETIC</h4>
-                                <p>브루탈리즘의 거친 아름다움을 러닝 문화에 접목시킨 독특한 스타일.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🤝</div>
-                            <div class="feature-text">
-                                <h4>COMMUNITY SPIRIT</h4>
-                                <p>같은 열정을 공유하는 러너들과 함께하는 강력한 공동체 문화.</p>
-                            </div>
-                        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-label">CONTACT INFO</div>
+                    <div class="footer-value">INFO@BAFNOBA.COM</div>
+                </div>
+                <div class="footer-social">
+                    <div class="social-icon">
+                        <span class="icon-label">URBAN RUNNERS</span>
+                    </div>
+                    <div class="social-icon">
+                        <span class="icon-label">URBANRUNNERS</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events 섹션 -->
-    <section id="events" class="events-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">UPCOMING EVENTS</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">15</span>
-                        <span class="date-month">DEC</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>CONCRETE NIGHT RUN</h3>
-                        <p>도시의 밤을 달리는 특별한 야간 러닝 이벤트</p>
-                        <div class="event-details">
-                            <span>📍 한강공원</span>
-                            <span>⏰ 19:00</span>
-                            <span>👥 30명</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">22</span>
-                        <span class="date-month">DEC</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>INDUSTRIAL MARATHON</h3>
-                        <p>산업 단지를 관통하는 풀 마라톤 코스</p>
-                        <div class="event-details">
-                            <span>📍 성수동</span>
-                            <span>⏰ 06:00</span>
-                            <span>👥 100명</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">29</span>
-                        <span class="date-month">DEC</span>
-                    </div>
-                    <div class="event-info">
-                        <h3>YEAR-END PARTY</h3>
-                        <p>한 해를 마무리하는 멤버들과의 특별한 모임</p>
-                        <div class="event-details">
-                            <span>📍 클럽하우스</span>
-                            <span>⏰ 18:00</span>
-                            <span>👥 전체</span>
-                        </div>
-                    </div>
+                <div class="footer-copy">
+                    <p>2024 URBAN RUNNERS</p>
+                    <p>© 2024 URBAN RUNNERS // CONCRETE MILES</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Members 섹션 -->
-    <section id="members" class="members-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">CREW MEMBERS</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="members-grid">
-                <div class="member-card">
-                    <div class="member-avatar">
-                        <span class="avatar-text">KJ</span>
-                    </div>
-                    <div class="member-info">
-                        <h3>김준호</h3>
-                        <p>CREW LEADER</p>
-                        <div class="member-stats">
-                            <span>🏃 5년</span>
-                            <span>🏆 15회</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">
-                        <span class="avatar-text">SY</span>
-                    </div>
-                    <div class="member-info">
-                        <h3>이서영</h3>
-                        <p>EVENT ORGANIZER</p>
-                        <div class="member-stats">
-                            <span>🏃 3년</span>
-                            <span>🏆 8회</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">
-                        <span class="avatar-text">MH</span>
-                    </div>
-                    <div class="member-info">
-                        <h3>박민혁</h3>
-                        <p>TRAINING COACH</p>
-                        <div class="member-stats">
-                            <span>🏃 7년</span>
-                            <span>🏆 23회</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <div class="member-avatar">
-                        <span class="avatar-text">JY</span>
-                    </div>
-                    <div class="member-info">
-                        <h3>최지영</h3>
-                        <p>COMMUNITY MANAGER</p>
-                        <div class="member-stats">
-                            <span>🏃 2년</span>
-                            <span>🏆 5회</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact 섹션 -->
-    <section id="contact" class="contact-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">JOIN THE CREW</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form id="joinForm">
-                        <div class="form-group">
-                            <label for="name">이름</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">이메일</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">전화번호</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="experience">러닝 경험</label>
-                            <select id="experience" name="experience" required>
-                                <option value="">선택해주세요</option>
-                                <option value="beginner">초보자 (6개월 미만)</option>
-                                <option value="intermediate">중급자 (6개월-2년)</option>
-                                <option value="advanced">상급자 (2년 이상)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">자기소개</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">JOIN CONCRETE RUNNERS</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>GET IN TOUCH</h3>
-                    <div class="contact-item">
-                        <strong>📧 Email</strong>
-                        <p>info@concreterunners.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>📱 Instagram</strong>
-                        <p>@concrete_runners_seoul</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>📍 Meeting Point</strong>
-                        <p>성수동 카페거리<br>매주 토요일 오전 7시</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>💬 KakaoTalk</strong>
-                        <p>오픈채팅방: "콘크리트러너스"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo-text">CONCRETE</span>
-                <span class="logo-sub">RUNNERS</span>
-            </div>
-            <div class="footer-text">
-                <p>© 2024 Concrete Runners. Industrial Running Crew.</p>
-                <p>도시를 달리는 브루탈리즘 러닝 크루</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
