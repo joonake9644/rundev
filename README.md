@@ -4,185 +4,153 @@
 
 ## 🏗️ 프로젝트 개요
 
-**CONCRETE RUNNERS**는 도시의 콘크리트 위를 달리는 러닝 크루를 위한 브루탈리즘 디자인 웹사이트입니다. 산업적 미학과 러닝 문화를 결합하여 강인하고 독특한 시각적 경험을 제공합니다.
+**CONCRETE RUNNERS**는 도시의 콘크리트 위를 달리는 러닝 크루를 위한 브루탈리즘 디자인 웹사이트입니다. Next.js, Tailwind CSS, shadcn/ui를 사용하여 현대적이고 유지보수가 쉬운 방식으로 재구축되었습니다.
 
-## 🎨 디자인 컨셉
+## 🛠️ 기술 스택
 
-### 컬러 팔레트
-- **Primary Orange**: `#FF6B35` - 브랜드 메인 컬러
-- **Concrete Gray**: `#666666` - 산업적 느낌
-- **Deep Black**: `#1A1A1A` - 배경 컬러
-- **Light Gray**: `#CCCCCC` - 텍스트 컬러
-- **Dark Gray**: `#2A2A2A` - 섹션 배경
-
-### 타이포그래피
-- **Heading Font**: Space Grotesk (Google Fonts)
-- **Body Font**: Inter (Google Fonts)
-
-## 📁 파일 구조
-
-```
-rundev/
-├── index.html          # 메인 HTML 파일
-├── styles.css          # 브루탈리즘 스타일시트
-├── script.js           # 인터랙티브 JavaScript
-└── README.md          # 프로젝트 문서
-```
+- **Next.js 15** - React 프레임워크 (App Router)
+- **TypeScript** - 타입 안전성
+- **Tailwind CSS** - 유틸리티 우선 CSS 프레임워크
+- **shadcn/ui** - 고품질 React 컴포넌트
+- **Lucide React** - 아이콘 라이브러리
 
 ## 🚀 설치 및 실행
 
-### 1. 로컬에서 바로 실행
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
 ```bash
-# 프로젝트 디렉토리로 이동
-cd rundev
+# 의존성 설치
+npm install
 
-# 브라우저에서 index.html 파일 열기
-open index.html  # macOS
-start index.html # Windows
-xdg-open index.html # Linux
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+
+# 프로덕션 서버 시작
+npm start
 ```
 
-### 2. 로컬 서버로 실행 (권장)
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인하세요.
 
-#### Python 사용
-```bash
-# Python 3.x
-python -m http.server 8000
+## 📁 프로젝트 구조
 
-# Python 2.x
-python -m SimpleHTTPServer 8000
+```
+src/
+├── app/
+│   ├── layout.tsx      # 루트 레이아웃
+│   ├── page.tsx        # 홈 페이지
+│   └── globals.css     # 글로벌 스타일
+├── components/
+│   ├── ui/             # shadcn/ui 컴포넌트
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── textarea.tsx
+│   │   └── select.tsx
+│   ├── Navigation.tsx  # 네비게이션 컴포넌트
+│   ├── Hero.tsx        # 히어로 섹션
+│   ├── About.tsx       # 소개 섹션
+│   ├── Events.tsx      # 이벤트 섹션
+│   ├── Members.tsx     # 멤버 섹션
+│   ├── Contact.tsx     # 연락처 폼
+│   └── Footer.tsx      # 푸터
+└── lib/
+    └── utils.ts        # 유틸리티 함수
 ```
 
-#### Node.js 사용
-```bash
-# http-server 설치 (한 번만 실행)
-npm install -g http-server
+## 🎨 디자인 시스템
 
-# 서버 실행
-http-server
-```
+### 컬러 팔레트
+- **Background**: Zinc 950 (거의 검정)
+- **Foreground**: White/Zinc 100
+- **Accent**: Zinc 900 (다크 그레이)
+- **Muted**: Zinc 100/500
 
-#### VS Code Live Server
-1. VS Code에서 프로젝트 열기
-2. "Live Server" 확장 프로그램 설치
-3. index.html 우클릭 → "Open with Live Server"
-
-### 3. 브라우저 접속
-```
-http://localhost:8000
-```
+### 타이포그래피
+- **Headings**: System UI 폰트 스택 (굵고 강한 느낌)
+- **Body**: Sans-serif 폰트 스택
 
 ## 📱 주요 기능
 
 ### 1. 네비게이션
 - 고정형 네비게이션 바
-- 모바일 햄버거 메뉴
+- 반응형 모바일 메뉴
 - 스무스 스크롤
-- 호버 효과
+- 스크롤 시 배경 변화 효과
 
 ### 2. Hero Section
-- 애니메이션 배경 (콘크리트 텍스처, 그리드 패턴)
-- 실시간 카운터 애니메이션
-- CTA 버튼
-- 반응형 디자인
+- 그리드 패턴 배경
+- 통계 정보 표시
+- CTA 버튼 (shadcn/ui Button)
+- 완전 반응형
 
 ### 3. About Section
 - 크루 소개
-- 핵심 가치 3가지
-- 호버 인터랙션
+- 3개의 핵심 가치 카드
+- 호버 효과
 
 ### 4. Events Section
-- 예정된 이벤트 카드
+- 이벤트 카드 그리드
 - 날짜, 장소, 시간 정보
-- 슬라이드 애니메이션 효과
+- 깔끔한 카드 디자인
 
 ### 5. Members Section
 - 멤버 프로필 카드
-- 아바타, 역할, 통계
-- 그리드 레이아웃
+- 아바타, 이름, 역할, 통계
+- 반응형 그리드 레이아웃
 
 ### 6. Contact Section
-- 가입 신청 폼
+- shadcn/ui Form 컴포넌트 사용
 - 유효성 검사
-- 연락처 정보
+- 연락처 정보 카드
 
-## 🎯 브라우저 호환성
+## 🔧 커스터마이징
 
-- ✅ Chrome (최신 버전)
-- ✅ Firefox (최신 버전)
-- ✅ Safari (최신 버전)
-- ✅ Edge (최신 버전)
-- ⚠️ IE11 (부분 지원)
+### shadcn/ui 컴포넌트 추가
 
-## 📐 반응형 브레이크포인트
-
-```css
-/* Mobile */
-@media (max-width: 480px) { }
-
-/* Tablet */
-@media (max-width: 768px) { }
-
-/* Desktop */
-@media (min-width: 769px) { }
-```
-
-## ⚡ 성능 최적화
-
-### 적용된 최적화 기법
-- CSS 애니메이션 하드웨어 가속
-- Intersection Observer API 활용
-- requestAnimationFrame 사용
-- 이미지 최적화 (Google Fonts CDN)
-- 최소한의 외부 리소스
-
-### 성능 지표
-- First Contentful Paint (FCP): < 1.5s
-- Largest Contentful Paint (LCP): < 2.5s
-- Time to Interactive (TTI): < 3.0s
-
-## 🔧 커스터마이징 가이드
-
-### 색상 변경
-`styles.css` 파일에서 주요 색상 변수 수정:
-```css
-/* Primary Color */
-#FF6B35 → 원하는 색상 코드
-
-/* Background */
-#1A1A1A → 원하는 배경색
-```
-
-### 폰트 변경
-`index.html` head 섹션의 Google Fonts 링크 수정:
-```html
-<link href="https://fonts.googleapis.com/css2?family=YourFont" rel="stylesheet">
-```
-
-### 컨텐츠 수정
-`index.html` 파일에서 각 섹션의 텍스트 수정:
-- 이벤트 정보
-- 멤버 정보
-- 연락처 정보
-
-## 🌐 배포 가이드
-
-### GitHub Pages
 ```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
-
-# Settings → Pages → Source: main branch
+npx shadcn@latest add [component-name]
 ```
 
-### Netlify
-1. Netlify에 로그인
-2. "New site from Git" 클릭
-3. 저장소 연결
-4. 배포 설정 (Build command: 없음, Publish directory: /)
+예시:
+```bash
+npx shadcn@latest add dialog
+npx shadcn@latest add dropdown-menu
+```
 
-### Vercel
+### Tailwind 색상 변경
+
+`tailwind.config.ts` 파일에서 색상 팔레트를 수정할 수 있습니다:
+
+```typescript
+theme: {
+  extend: {
+    colors: {
+      // 커스텀 색상 추가
+    }
+  }
+}
+```
+
+### 컴포넌트 수정
+
+각 섹션은 독립적인 컴포넌트로 구성되어 있어 쉽게 수정할 수 있습니다:
+- `src/components/Events.tsx` - 이벤트 데이터 수정
+- `src/components/Members.tsx` - 멤버 정보 수정
+- `src/components/Contact.tsx` - 연락처 정보 수정
+
+## 🌐 배포
+
+### Vercel (권장)
+
 ```bash
 # Vercel CLI 설치
 npm i -g vercel
@@ -191,42 +159,38 @@ npm i -g vercel
 vercel
 ```
 
-## 📚 기술 스택
+또는 GitHub 저장소를 Vercel에 연결하면 자동 배포됩니다.
 
-- **HTML5**: 시맨틱 마크업
-- **CSS3**: Flexbox, Grid, 애니메이션
-- **JavaScript (ES6+)**: Vanilla JS
-- **Google Fonts**: Space Grotesk, Inter
+### Netlify
+
+```bash
+# 빌드 명령어: npm run build
+# 퍼블리시 디렉토리: .next
+```
+
+## 📦 이전 버전
+
+기존 HTML/CSS/JS 버전은 `old_site/` 디렉토리에 백업되어 있습니다.
 
 ## 🎓 학습 리소스
 
-### 브루탈리즘 디자인
-- [Brutalist Websites](https://brutalistwebsites.com/)
-- [Web Design Museum](https://www.webdesignmuseum.org/)
-
-### CSS 그리드 & Flexbox
-- [CSS Grid Generator](https://cssgrid-generator.netlify.app/)
-- [Flexbox Froggy](https://flexboxfroggy.com/)
-
-### 웹 성능
-- [Web.dev](https://web.dev/)
-- [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [TypeScript](https://www.typescriptlang.org/docs)
 
 ## 📄 라이선스
 
 MIT License - 자유롭게 사용, 수정, 배포할 수 있습니다.
 
-## 👥 기여
-
-이슈 및 Pull Request는 언제나 환영합니다!
-
 ## 📧 문의
 
 - Email: info@concreterunners.com
 - Instagram: @concrete_runners_seoul
+- Meeting Point: 성수동 카페거리, 매주 토요일 오전 7시
 
 ---
 
-**Made with 🧡 by CONCRETE RUNNERS**
+**Made with Next.js, Tailwind CSS, and shadcn/ui**
 
 *도시를 달리는 브루탈리즘 러닝 크루*
